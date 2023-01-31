@@ -23,9 +23,65 @@ namespace StudentGradeCalculation.Controllers
 		}
 		[AllowAnonymous]
 		[HttpPost]
-		public async Task<ActionResult> Register(RegisterViewModel model)
+		public async Task<JsonResult> Register(RegisterViewModel model)
 		{
-			return View();
+			bool hasError = false;
+			string message = "";
+			try
+			{
+				if (model.Password != model.PasswordConfirmation)
+				{
+					hasError = true;
+					message = "Girdiğiniz şifreler birbirinden farklı.";
+				}
+				else
+				{
+					if (model.NameSurname != null)
+					{
+						if (model.StudentNumber != 0)
+						{
+							var student = new Student
+							{
+								NameSurname = model.NameSurname,
+								StudentNumber = model.StudentNumber,
+								Password = EncryptionSpiral.SpiralEncrypt(model.Password),
+								Active = true,
+								CreateDate = DateTime.Now,
+								LastLoginDate = DateTime.Now,
+							};
+							using (var db = DBInstance.CreateInstance())
+							{
+								db.Students.Add(student);
+								if (await db.SaveChangesAsync() > 0)
+								{
+									hasError = false;
+									message = "Kayıt başarılı.";
+								}
+								else
+								{
+									hasError = true;
+									message = "Kayıt yapılırken bir sorun oluştu.";
+								}
+							}
+						}
+						else
+						{
+							hasError = true;
+							message = "Öğrenci numarası alınamadı.";
+						}
+					}
+					else
+					{
+						hasError = true;
+						message = "Ad soyad alınamadı.";
+					}
+				}
+			}
+			catch
+			{
+				throw;
+			}
+			return Json(new {hasError = hasError,message = message});
 		}
 		[AllowAnonymous]
 		public async Task<ActionResult> Login()
@@ -46,21 +102,21 @@ namespace StudentGradeCalculation.Controllers
 					model.Password = EncryptionSpiral.SpiralEncrypt(model.Password);
 					using (var db = DBInstance.CreateInstance())
 					{
-						var admin = await db.Students.FirstOrDefaultAsync(a => a.StudentNumber == model.SudentNumber && a.Password == model.Password);
-						if (admin != null)
+						var student = await db.Students.FirstOrDefaultAsync(a => a.StudentNumber == model.StudentNumber && a.Password == model.Password);
+						if (student != null)
 						{
-							if (admin.Active)
+							if (student.Active)
 							{
 								FormsAuthentication.SignOut();
-								FormsAuthentication.SetAuthCookie(EncryptionSpiral.SpiralEncrypt(admin.StudentNumber.ToString()), false);
-								admin.LastLoginDate = DateTime.Now;
+								FormsAuthentication.SetAuthCookie(EncryptionSpiral.SpiralEncrypt(student.StudentNumber.ToString()), false);
+								student.LastLoginDate = DateTime.Now;
 								await db.SaveChangesAsync();
-								SessionHelper.Set("StudentNumber", admin.StudentNumber);
-								SessionHelper.Set("UserId", admin.ID);
-								SessionHelper.Set("StudentName", admin.NameSurname);
-								CookieHelper.CreateCookie("StudentNumber", admin.StudentNumber.ToString(), null);
-								CookieHelper.CreateCookie("UserId", admin.ID.ToString(), null);
-								CookieHelper.CreateCookie("StudentName", admin.NameSurname.ToString(), null);
+								SessionHelper.Set("StudentNumber", student.StudentNumber);
+								SessionHelper.Set("UserId", student.ID);
+								SessionHelper.Set("StudentName", student.NameSurname);
+								CookieHelper.CreateCookie("StudentNumber", student.StudentNumber.ToString(), null);
+								CookieHelper.CreateCookie("UserId", student.ID.ToString(), null);
+								CookieHelper.CreateCookie("StudentName", student.NameSurname.ToString(), null);
 								hasError = false;
 								message = "Giriş Başarılı";
 							}

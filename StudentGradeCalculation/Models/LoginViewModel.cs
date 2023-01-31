@@ -9,7 +9,7 @@ namespace StudentGradeCalculation.Models
 	public class LoginViewModel
 	{
 		[Required]
-		public long SudentNumber { get; set; }
+		public long StudentNumber { get; set; }
 		[Required]
 		public string Password { get; set; }
 		public string ReturnUrl { get; set; }

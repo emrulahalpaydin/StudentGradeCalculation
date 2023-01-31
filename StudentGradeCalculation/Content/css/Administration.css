@@ -1,0 +1,188 @@
+﻿.container .table-responsive table.w-100 tr td, .container .table-responsive table.w-100 tr th {
+    width: 100px;
+    text-align: center;
+}
+
+.container .table-responsive table.w-100 tr td {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+    word-break: break-all
+}
+
+.container .table-responsive table.w-100 tr th {
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+section.navbar-area .container.d-flex.align-items-center {
+    justify-content: space-between;
+}
+
+    section.navbar-area .container.d-flex.align-items-center img {
+        max-width: 200px;
+        filter: brightness(0) invert(1);
+    }
+
+section.navbar-area {
+    background: #ff2d2b;
+    margin-bottom: 35px;
+}
+
+.dropdown button.btn.btn-secondary.dropdown-toggle {
+    border: 0;
+    background: #ff2d2b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+ul.dropdown-menu li:hover a:hover {
+    background: #ff2d2b !important;
+    color: #fff !important;
+}
+
+.user-dropdown-area .dropdown button.btn.btn-secondary.dropdown-toggle {
+    border: 1px solid #fff;
+    border-radius: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+table tbody tr:last-child {
+    border: 0 !important;
+}
+
+table tr {
+    border-bottom: 1px solid #ff2d2b;
+}
+
+.container .table-responsive table.w-100 tr td p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+td.email-area {
+    width: 219px !important;
+    min-width: 219px;
+}
+
+    td.email-area span {
+        word-break: break-all;
+    }
+
+.table-responsive {
+    height: 100%;
+    padding: 15px 0;
+}
+
+.input-group.mb-3 input.form-control.m-input--solid {
+    border-radius: 5px 0 0 5px;
+    height: 40px;
+}
+
+.input-group.mb-3 button#button-addon2 {
+    border-radius: 0 5px 5px 0;
+    height: 40px;
+    width: 80px;
+    font-weight: 600;
+    color: #fff;
+    background: #ff2d2b;
+    border-color: #ff2d2b;
+}
+
+.form-control:focus {
+    border-color: #ced4da !important;
+    box-shadow: none !important;
+}
+
+.pagination-container ul.pagination {
+    justify-content: center;
+}
+
+    .pagination-container ul.pagination li {
+        background: #ff2d2b;
+        color: #fff;
+        width: 25px;
+        height: 25px;
+    }
+
+        .pagination-container ul.pagination li:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .pagination-container ul.pagination li:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+
+        .pagination-container ul.pagination li.active {
+            border-radius: 5px;
+        }
+
+.action-area {
+    box-shadow: 0px 0px 15px 0px #00000029;
+    border-radius: 10px;
+}
+
+    .action-area .action-head-area {
+        background: #f3f6f9;
+        padding: 20px;
+        border-radius: 10px 10px 0 0;
+    }
+
+        .action-area .action-head-area .action-title {
+            color: #ff2d2b;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+            .action-area .action-head-area .action-title p:first-child {
+                font-size: 21px;
+                font-weight: 600;
+                color: #333333;
+                margin: 0;
+            }
+
+.action-body-area {
+    background: #fff;
+    padding: 20px;
+}
+
+.action-body-label.required:after {
+    content: "*";
+    position: relative;
+    font-size: inherit;
+    color: #ff2d2b;
+    padding-left: .25rem;
+    font-weight: 600;
+}
+
+.action-body-input {
+    margin: 6px 0 20px 0;
+    height: 45px;
+    border-radius: 5px;
+    background: #f2f2f2;
+    border: inherit;
+    outline: inherit !important;
+    padding: 10px;
+}
+
+    .action-body-input:hover, .action-body-input:focus {
+        border: 1px solid #ff2d2b;
+        background: #fff !important;
+    }
+
+    .action-body-input.w-100::placeholder {
+        font-weight: 500;
+    }
+
+label.action-body-label {
+    font-weight: 600;
+    color: #333333;
+    font-size: 17px;
+}
