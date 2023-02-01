@@ -22,17 +22,19 @@ body {
     padding: 30px;
     max-height: 450px;
 }
+
 .register-box-area {
     box-shadow: 0px 0px 10px 0px #a2a2a2;
     width: 500px;
     margin: 0 auto;
     border-radius: 10px;
-    height: 550px;
+    height: 650px;
     position: relative;
     background: #fff;
     padding: 30px;
-    max-height: 550px;
+    max-height: 650px;
 }
+
 .login-all-area {
     display: flex;
     height: -webkit-fill-available;
@@ -49,6 +51,13 @@ body {
     background: #ff2d2b;
     margin-bottom: 55px;
 }
+
+    .login-header-area img {
+        height:100px;
+        width:155px;
+        max-height: 100px;
+        max-width: 155px;
+    }
 
 .mail-area input {
     height: 50px;

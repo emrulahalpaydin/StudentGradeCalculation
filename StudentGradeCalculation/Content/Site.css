@@ -8,3 +8,10 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+.logo-area img {
+    max-width: 100px;
+    width: 100px;
+    height: 75px;
+    max-height: 75px;
+    position: relative;
+}
