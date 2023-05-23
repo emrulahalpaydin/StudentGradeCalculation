@@ -16,5 +16,6 @@ namespace Database.Entities
 			System.Data.Entity.Database.SetInitializer<DB>(null);
 		}
 		public DbSet<Student> Students { get; set; }
+		public DbSet<Teacher> Teachers { get; set; }
 	}
 }

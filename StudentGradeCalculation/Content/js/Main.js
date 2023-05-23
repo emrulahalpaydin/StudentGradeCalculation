@@ -1,11 +1,11 @@
-﻿$('#registerButton').on('click', function (e) {
+﻿$('#registerStudentButton').on('click', function (e) {
     var NameSurname = $("input[name='NameSurname']");
     var StudentNumber = $("input[name='StudentNumber']");
     var Password = $("input[name='Password']");
     var PasswordConfirmation = $("input[name='PasswordConfirmation']");
     var antiforgeryInput = $('input[name="__RequestVerificationToken"]');
     $.ajax({
-        url: "/Administration/Register",
+        url: "/Student/Register",
         type: "post",
         data: {
             NameSurname: $(NameSurname).val(),
@@ -29,13 +29,13 @@
     return false;
 });
 
-$('#loginButton').on('click', function (e) {
+$('#loginStudentButton').on('click', function (e) {
     var StudentNumber = $("input[name='StudentNumber']");
     var Password = $("input[name='Password']");
     var returnInput = $("input[name='ReturnUrl']");
     var antiforgeryInput = $('input[name="__RequestVerificationToken"]');
     $.ajax({
-        url: "/Administration/Login",
+        url: "/Student/Login",
         type: "post",
         data: {
             StudentNumber: $(StudentNumber).val(),
@@ -59,7 +59,7 @@ $('#loginButton').on('click', function (e) {
     e.stopPropagation();
     return false;
 });
-$("#ChangePasswordButton").on('click', function () {
+$("#ChangePasswordStudentButton").on('click', function () {
     var model = {};
     var oldPass = $("input[name='OldPassword']").val();
     var newPass = $("input[name='NewPassword']").val();
@@ -70,13 +70,13 @@ $("#ChangePasswordButton").on('click', function () {
             model.NewPassword = newPass;
             model.NewPasswordConfirmation = newPassConfirm;
             $.ajax({
-                url: "/Administration/ChangePassword",
+                url: "/Student/ChangePassword",
                 type: "post",
                 data: { "model": model },
                 success: function (resp) {
                     if (!resp.hasError) {
                         toastr.success(resp.message);
-                        setTimeout(function () { window.location.href = "/Administration/Index" }, 2500)
+                        setTimeout(function () { window.location.href = "/Student/Index" }, 2500)
                     }
                     else {
                         toastr.error(resp.message);

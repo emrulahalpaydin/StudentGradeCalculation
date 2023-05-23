@@ -54,6 +54,8 @@
     <Compile Include="Entities\DB.cs" />
     <Compile Include="Entities\DBInstance.cs" />
     <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\Teacher.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Migrations\202301311727282_firstMigration.cs" />
     <Compile Include="Migrations\202301311727282_firstMigration.designer.cs">
       <DependentUpon>202301311727282_firstMigration.cs</DependentUpon>

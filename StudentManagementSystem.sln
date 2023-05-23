@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentGradeCalculation", "StudentGradeCalculation\StudentGradeCalculation.csproj", "{22F8F128-568B-4911-8B92-D395D98ABD87}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementSystem", "StudentGradeCalculation\StudentManagementSystem.csproj", "{22F8F128-568B-4911-8B92-D395D98ABD87}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{7B1E0738-F2C5-45E4-A8CD-DBE07840838F}"
 EndProject

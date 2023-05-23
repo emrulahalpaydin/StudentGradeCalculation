@@ -1,5 +1,6 @@
 ﻿@{ 
-    var studentName = Common.Helpers.CookieHelper.GetCookie("StudentName");
+    var NameSurname = Common.Helpers.CookieHelper.GetCookie("NameSurname");
+    var userType = Common.Helpers.CookieHelper.GetCookie("UserType");
 }
 <!DOCTYPE html>
 <html>
@@ -16,16 +17,30 @@
     <section class="navbar-area">
         <div class="container d-flex align-items-center py-3">
             <div class="logo-area">
-                <img src="~/Content/img/students.png" >
+                <img src="~/Content/img/students-blue.png" >
             </div>
             <div class="user-dropdown-area">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        @studentName
+                        @NameSurname
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/Administration/ChangePassword">Şifre Değiştir</a></li>
-                        <li><a class="dropdown-item" href="/Administration/Logout">Çıkış Yap</a></li>
+                        @if (userType == "Student")
+                        {
+                            <li><a class="dropdown-item" href="/Student/ChangePassword">Şifre Değiştir</a></li>
+                            <li><a class="dropdown-item" href="/Student/Logout">Çıkış Yap</a></li>
+                        }
+                        @if (userType == "Teacher")
+                        {
+                            <li><a class="dropdown-item" href="/Teacher/ChangePassword">Şifre Değiştir</a></li>
+                            <li><a class="dropdown-item" href="/Teacher/Logout">Çıkış Yap</a></li>
+                        }
+                        @if (userType == "XMaster")
+                        {
+                            <li><a class="dropdown-item" href="/Administration/ChangePassword">Şifre Değiştir</a></li>
+                            <li><a class="dropdown-item" href="/Administration/Logout">Çıkış Yap</a></li>
+                        }
+                        
                     </ul>
                 </div>
             </div>
